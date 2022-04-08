@@ -96,7 +96,7 @@ namespace assignment {
 
   std::optional<int> MinBinaryHeap::Search(int key) const {
     if (search_index(key) != std::nullopt) {
-      return search_index(key);
+      return data_[search_index(key).value()].key;
     }
     return std::nullopt;
   }
