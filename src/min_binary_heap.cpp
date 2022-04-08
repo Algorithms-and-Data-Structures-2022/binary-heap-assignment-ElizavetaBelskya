@@ -95,7 +95,7 @@ namespace assignment {
   }
 
   std::optional<int> MinBinaryHeap::Search(int key) const {
-    if (search_index(key) != std::nullopt) {
+    if (search_index(key).has_value()) {
       return data_[search_index(key).value()].value;
     }
     return std::nullopt;
@@ -167,7 +167,7 @@ namespace assignment {
   }
 
   std::optional<int> MinBinaryHeap::search_index(int key) const {
-    for (int i = 0; i < kDefaultCapacity; i++) {
+    for (int i = 0; i < capacity_; i++) {
       if (data_[i].key == key) {
         return i;
       }

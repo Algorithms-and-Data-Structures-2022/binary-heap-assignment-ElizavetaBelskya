@@ -11,7 +11,8 @@ int main() {
   minBinaryHeap.Insert(7,55);
   minBinaryHeap.Insert(1,222);
   minBinaryHeap.Insert(9,88);
-  std::cout << minBinaryHeap.Search(6).value();
+  std::cout << minBinaryHeap.Search(6).has_value() << std::endl;
+  std::cout << minBinaryHeap.capacity();
 
   return 0;
 }
