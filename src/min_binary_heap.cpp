@@ -55,7 +55,8 @@ namespace assignment {
       return std::nullopt;
     }
     int val = data_[0].value;
-    data_[0] = data_[capacity_-1];
+    data_[0].key = data_[capacity_-1].key;
+    data_[0].value = data_[capacity_-1].value;
     data_[capacity_-1] = Node{};
     size_--;
     heapify(0);
