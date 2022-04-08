@@ -6,8 +6,12 @@ using namespace std;
 using namespace assignment;
 
 int main() {
-
-  cout << "Write your code here...\n";
+  assignment::MinBinaryHeap minBinaryHeap;
+  minBinaryHeap.Insert(3,66);
+  minBinaryHeap.Insert(7,55);
+  minBinaryHeap.Insert(1,222);
+  minBinaryHeap.Insert(9,88);
+  std::cout << minBinaryHeap.Search(6).value();
 
   return 0;
 }
