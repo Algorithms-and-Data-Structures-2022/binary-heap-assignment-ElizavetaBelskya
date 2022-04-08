@@ -167,18 +167,12 @@ namespace assignment {
   }
 
   std::optional<int> MinBinaryHeap::search_index(int key) const {
-    int index = 0;
-    while (key != data_[index].key && index < kDefaultCapacity) {
-      if (key > data_[index].key) {
-        index = right_child_index(index);
-      } else if (key < data_[index].key){
-        index = left_child_index(index);
+    for (int i = 0; i < kDefaultCapacity; i++) {
+      if (data_[i].key == key) {
+        return i;
       }
     }
-    if (index >= kDefaultCapacity) {
-      return std::nullopt;
-    }
-    return index;
+    return std::nullopt;
   }
 
 }  // namespace assignment
