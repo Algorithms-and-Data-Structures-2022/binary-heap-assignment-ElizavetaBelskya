@@ -55,9 +55,10 @@ namespace assignment {
       return std::nullopt;
     }
     int val = data_[0].value;
+    data_[0] = data_[size_-1];
+    data_[size_-1].key = 0;
+    data_[size_-1].value = 0;
     size_--;
-    data_[0] = data_[size_];
-    data_[size_] = Node{};
     heapify(0);
     // Tips:
     // 1. Сохраните значение текущего корня в переменной.
