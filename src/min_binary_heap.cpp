@@ -54,8 +54,9 @@ namespace assignment {
       // двоичная куча пустая, операция извлечения корня невозможна
       return std::nullopt;
     }
-    int val = data_[0].value;
-    data_[0] = data_[size_-1];
+    std::optional<int> val = data_[0].value;
+    data_[0].key = data_[size_-1].key;
+    data_[0].value = data_[size_-1].value;
     data_[size_-1].key = 0;
     data_[size_-1].value = 0;
     size_--;
@@ -70,14 +71,13 @@ namespace assignment {
 
   bool MinBinaryHeap::Remove(int key) {
     constexpr int min_key_value = std::numeric_limits<int>::min();
-    if (!Search(key).has_value()) {
+    auto index = search_index(key);
+    if (!index.has_value()) {
       return false;
-    } else {
-      int index = search_index(key).value();
-      data_[index].key = min_key_value;
-      sift_up(index);
-      Extract();
     }
+      data_[index.value()].key = min_key_value;
+      sift_up(index.value());
+      Extract();
     // Tips:
     // 1. Найдите индекс удаляемого узла по ключу.
     // 2. Установите ключом удаляемого узла наименьшее возможное значение ключа min_key_value.

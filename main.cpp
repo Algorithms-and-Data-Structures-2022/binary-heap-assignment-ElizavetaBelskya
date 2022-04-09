@@ -13,6 +13,6 @@ int main() {
   minBinaryHeap.Insert(9,88);
   minBinaryHeap.Extract();
   std::cout << minBinaryHeap.size()<<std::endl;
-  std::cout << minBinaryHeap.Contains(3);
+  std::cout << minBinaryHeap.Extract().value();
   return 0;
 }
