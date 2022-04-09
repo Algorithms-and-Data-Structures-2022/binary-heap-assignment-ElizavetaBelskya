@@ -54,11 +54,8 @@ namespace assignment {
       // двоичная куча пустая, операция извлечения корня невозможна
       return std::nullopt;
     }
-    std::optional<int> val = data_[0].value;
-    data_[0].key = data_[size_-1].key;
-    data_[0].value = data_[size_-1].value;
-    data_[size_-1].key = 0;
-    data_[size_-1].value = 0;
+    auto val = data_[0].value;
+    data_[0] = data_[size_-1];
     size_--;
     heapify(0);
     // Tips:

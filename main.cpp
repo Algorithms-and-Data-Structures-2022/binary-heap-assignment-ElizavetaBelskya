@@ -7,12 +7,10 @@ using namespace assignment;
 
 int main() {
   assignment::MinBinaryHeap minBinaryHeap;
-  minBinaryHeap.Insert(3,66);
-  minBinaryHeap.Insert(7,55);
-  minBinaryHeap.Insert(1,222);
-  minBinaryHeap.Insert(9,88);
+  minBinaryHeap.Insert(7,6);
+  minBinaryHeap.Insert(17,3);
+  minBinaryHeap.Insert(36,5);
+  minBinaryHeap.Insert(19,4);
   minBinaryHeap.Extract();
-  std::cout << minBinaryHeap.size()<<std::endl;
-  std::cout << minBinaryHeap.Extract().value();
   return 0;
 }
